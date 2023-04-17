@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("org.jetbrains.compose")
 }
 
 kotlin {
@@ -25,6 +26,19 @@ kotlin {
     sourceSets {
         val commonMain by getting{
             dependencies{
+                implementation(compose.ui)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.materialIconsExtended)
+
+                api(libs.kotlinx.coroutines.core)
+                api(libs.kotlinx.datetime)
+                api(libs.multiplatformSettings.core)
+
+                implementation(libs.stately.common)
+                implementation(libs.koin.core)
+                implementation(libs.hyperdrive.multiplatformx.api)
             }
         }
         val commonTest by getting {

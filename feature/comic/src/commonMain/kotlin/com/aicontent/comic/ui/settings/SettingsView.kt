@@ -1,4 +1,4 @@
-package com.mangala.wallet.features.people.ui.settings
+package com.aicontent.comic.ui.settings
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -24,13 +24,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import com.aicontent.comic.viewModel.settings.SettingViewModel
 import org.brightify.hyperdrive.multiplatformx.property.MutableObservableProperty
 import org.jetbrains.codeviewer.ui.theme.Dimensions
 import org.jetbrains.codeviewer.ui.util.observeAsState
-import com.mangala.wallet.features.people.viewmodel.settings.SettingsViewModel
 
 @Composable
-fun SettingsView(viewModel: SettingsViewModel) {
+fun SettingsView(viewModel: SettingViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -50,11 +50,11 @@ fun SettingsView(viewModel: SettingsViewModel) {
 //            )
 
             Text("OKEla 4321")
-            viewModel.loadPeople(true, 5)
-            val state = viewModel.getPeople.collectAsState()
+//            viewModel.loadPeople(true, 5)
+//            val state = viewModel.getPeople.collectAsState()
             Divider()
 
-            Text(state.value?.name ?: "")
+//            Text(state.value?.name ?: "")
 
 //            IconTextSwitchRow(
 //                text = "Enable reminders",

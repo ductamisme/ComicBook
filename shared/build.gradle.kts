@@ -29,22 +29,22 @@ kotlin {
         }
     }
 
-    jvm("desktop")
+//    jvm("desktop")
 
     ios()
     iosSimulatorArm64()
 
-//    cocoapods {
-//        summary = "Shared code for the sample"
-//        homepage = "https://github.com/JetBrains/compose-jb"
-//        ios.deploymentTarget = "14.1"
-//        podfile = project.file("../iosApp/Podfile")
-//        framework {
-//            baseName = "shared"
-//            isStatic = true
-//        }
-//        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
-//    }
+    cocoapods {
+        summary = "Shared code for the sample"
+        homepage = "https://github.com/JetBrains/compose-jb"
+        ios.deploymentTarget = "14.1"
+        podfile = project.file("../iosApp/Podfile")
+        framework {
+            baseName = "shared"
+            isStatic = true
+        }
+        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+    }
 
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
@@ -65,6 +65,7 @@ kotlin {
                 implementation(project(":domain"))
                 implementation(project(":feature:comic"))
 
+                implementation(compose.ui)
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
@@ -75,7 +76,7 @@ kotlin {
 //                implementation("androidx.compose.material:material-icons-extended:1.4.1")
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 //                implementation(compose.components.resources)
-                implementation("androidx.compose.components:components-resources:1.4.1")
+//                implementation("androidx.compose.components:components-resources:1.4.1")
 
                 api(libs.kotlinx.coroutines.core)
                 api(libs.kotlinx.datetime)
@@ -84,13 +85,17 @@ kotlin {
                 implementation(libs.stately.common)
                 implementation(libs.koin.core)
 
-                implementation(compose.ui)
-                implementation(compose.runtime)
+
 //                implementation ("androidx.compose.ui:ui:1.4.1")
 //                implementation("androidx.compose.ui:ui")
 //                implementation("androidx.compose.runtime:runtime:1.4.1")
 
                 implementation(libs.hyperdrive.multiplatformx.api)
+
+                implementation(libs.ktor.client.serialization)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.ktor.client.logging)
             }
         }
         val androidMain by getting {
@@ -111,6 +116,7 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
+                implementation(libs.ktor.client.ios)
             }
         }
 

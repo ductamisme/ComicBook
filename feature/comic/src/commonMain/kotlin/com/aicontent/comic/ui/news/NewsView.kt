@@ -1,30 +1,19 @@
-package com.mangala.wallet.features.people.ui.news
+package com.aicontent.comic.ui.news
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.focus.FocusRequester.Companion.createRefs
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.brightify.hyperdrive.multiplatformx.property.MutableObservableProperty
-import org.jetbrains.codeviewer.ui.theme.Dimensions
-import org.jetbrains.codeviewer.ui.util.observeAsState
-import com.mangala.wallet.features.people.viewmodel.settings.SettingsViewModel
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 @Composable
 fun NewsView() {

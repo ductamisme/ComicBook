@@ -36,7 +36,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    dynamicFeatures += setOf(":Domain", ":Libraries")
+//    dynamicFeatures += setOf(":Domain", ":Libraries")
 }
 
 dependencies {
