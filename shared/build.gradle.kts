@@ -98,6 +98,7 @@ kotlin {
                 implementation(libs.ktor.client.logging)
             }
         }
+
         val androidMain by getting {
             kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
@@ -107,6 +108,7 @@ kotlin {
                 implementation(libs.androidx.core.ktx)
             }
         }
+
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -131,12 +133,12 @@ kotlin {
 }
 
 android {
-    namespace = "com.aicontent.comicbook"
+    namespace = "com.aicontent.comicbook.common"
     compileSdk = 33
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
+    sourceSets["main"].manifest.srcFile("src/main/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/main/res", "src/commonMain/resources")
     defaultConfig {
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
     }
     compileOptions {

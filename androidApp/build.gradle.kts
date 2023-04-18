@@ -1,50 +1,46 @@
+//import org.jetbrains.compose.compose
+
 plugins {
+    kotlin("multiplatform")
     id("com.android.application")
-    kotlin("android")
+    id("org.jetbrains.compose")
+//    id("org.jetbrains.kotlin.android") version ("1.8.0")
 }
 
+kotlin {
+    android()
+    sourceSets {
+        val androidMain by getting {
+            dependencies {
+                implementation(project(":shared"))
+//                implementation(project(":share-ui"))
+//                implementation(libs.hyperdrive.multiplatformx.api)
+                implementation(compose.ui)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.runtime)
+//                implementation("androidx.activity:activity-compose:1.6.1")
+//                implementation(libs.koin.core)
+                implementation(libs.koin.android)
+                implementation(libs.koin.androidx.compose)
+//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
+
+            }
+        }
+    }
+}
 android {
     namespace = "com.aicontent.comicbook.android"
     compileSdk = 33
     defaultConfig {
-        applicationId = "com.aicontent.comicbook.android"
-        minSdk = 24
+        applicationId = "com.aicontent.comicbook"
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0"
-    }
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-//    dynamicFeatures += setOf(":Domain", ":Libraries")
-}
-
-dependencies {
-    implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui:1.3.1")
-    implementation("androidx.compose.ui:ui-tooling:1.3.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.3.1")
-    implementation("androidx.compose.foundation:foundation:1.3.1")
-    implementation("androidx.compose.material:material:1.3.1")
-    implementation("androidx.activity:activity-compose:1.6.1")
 }

@@ -1,6 +1,8 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("kotlinx-serialization")
+
 }
 
 kotlin {
@@ -23,7 +25,16 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting{
+            dependencies {
+                implementation(project(":data:model"))
+                implementation(project(":data:local"))
+                implementation(project(":data:remote"))
+                implementation(libs.kotlinx.serialization.core)
+                implementation(libs.koin.core)
+
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))

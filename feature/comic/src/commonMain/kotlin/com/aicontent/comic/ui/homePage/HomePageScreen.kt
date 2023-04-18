@@ -1,4 +1,4 @@
-package com.aicontent.comic.ui.news
+package com.aicontent.comic.ui.homePage
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,8 +15,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+
 @Composable
-fun NewsView() {
+fun HomePageScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -88,17 +89,11 @@ fun CompWalletCreateWallet(modifier: Modifier = Modifier) {
     }
 }
 
-
-//@Composable
-//@Preview
-//fun AndroidPreviewCompWalletCreateWallet() {
-//    Box(Modifier.size(360.dp, 640.dp)) {
-//        CompWalletCreateWallet()
-//    }
-//}
-
 @Composable
 fun CompWalletCreateWallet() {
     CompWalletCreateWallet(Modifier.fillMaxSize())
 }
+
+
+
 

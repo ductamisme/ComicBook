@@ -17,20 +17,19 @@ import androidx.compose.material.Switch
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import com.aicontent.comic.viewModel.settings.SettingViewModel
+import com.aicontent.comic.viewModel.settings.SettingsViewModel
 import org.brightify.hyperdrive.multiplatformx.property.MutableObservableProperty
 import org.jetbrains.codeviewer.ui.theme.Dimensions
 import org.jetbrains.codeviewer.ui.util.observeAsState
 
 @Composable
-fun SettingsView(viewModel: SettingViewModel) {
+fun SettingsView(viewModel: SettingsViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(

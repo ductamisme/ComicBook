@@ -1,7 +1,9 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("kotlinx-serialization")
     id("org.jetbrains.compose")
+    id("com.google.relay") version ("0.3.05")
 }
 
 kotlin {
@@ -25,19 +27,30 @@ kotlin {
 
     sourceSets {
         val commonMain by getting{
-            dependencies{
-                implementation(compose.ui)
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                implementation(compose.materialIconsExtended)
+            dependencies {
+                implementation(project(":domain"))
+                implementation(project(":data:model"))
 
+                //                implementation(libs.bundles.ktor.common)
+//                implementation(libs.bundles.sqldelight.common)
+//                api(libs.kermit)
+//                api(libs.kermit.crashlytics)
+
+                // this enforces new version of atomicfu, the older version from other libraries crashes iOS build
+//                api(libs.atomicfu)
+                api(libs.uuid)
                 api(libs.kotlinx.coroutines.core)
                 api(libs.kotlinx.datetime)
                 api(libs.multiplatformSettings.core)
 
                 implementation(libs.stately.common)
                 implementation(libs.koin.core)
+
+                implementation(compose.ui)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.runtime)
+
                 implementation(libs.hyperdrive.multiplatformx.api)
             }
         }
