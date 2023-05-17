@@ -1,7 +1,8 @@
 package com.aicontent.comic.viewModel.settings
 
-import com.aicontent.domain.comic.usecases.GetComicByIdUseCase
+import com.aicontent.domain.comic.usecases. GetComicByIdUseCase
 import com.aicontent.model.comic.domain.ComicModel
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -15,11 +16,14 @@ class SettingsViewModel(
     private val _getComic = MutableStateFlow<ComicModel?>(null)
     val getComic = _getComic.asStateFlow()
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun loadComic(forceReload :Boolean, comicId: Int){
         kotlinx.coroutines.GlobalScope.launch {
             val map = mutableMapOf<String, Any>()
+
             map["forceReload"] = forceReload
             map["comicId"] = comicId
+
             val result = getComicByIdUseCase(map)
             _getComic.value = result
             println("result $result")

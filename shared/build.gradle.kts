@@ -6,6 +6,9 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.compose")
     id("kotlinx-serialization")
+//    id("com.google.gms.google-services")
+    id("com.squareup.sqldelight")
+
 }
 
 version = "1.0-SNAPSHOT"
@@ -49,13 +52,8 @@ kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
             linkerOpts.add("-lsqlite3")
-//            export(libs.kermit)
-//            export(libs.hyperdrive.multiplatformx.api)
-//            export(project(":shared"))
-//            export(project(":shared-ui"))
         }
     }
-//    val compose_version = '1.1.1'
 
     sourceSets {
         val commonMain by getting {
@@ -70,13 +68,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material)
                 implementation(compose.materialIconsExtended)
-//                implementation("androidx.compose.runtime:runtime:1.4.1")
-//                implementation("androidx.compose.foundation:foundation:1.4.1")
-//                implementation("androidx.compose.material:material:1.4.1")
-//                implementation("androidx.compose.material:material-icons-extended:1.4.1")
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-//                implementation(compose.components.resources)
-//                implementation("androidx.compose.components:components-resources:1.4.1")
 
                 api(libs.kotlinx.coroutines.core)
                 api(libs.kotlinx.datetime)
@@ -85,17 +77,26 @@ kotlin {
                 implementation(libs.stately.common)
                 implementation(libs.koin.core)
 
-
-//                implementation ("androidx.compose.ui:ui:1.4.1")
-//                implementation("androidx.compose.ui:ui")
-//                implementation("androidx.compose.runtime:runtime:1.4.1")
-
+                implementation(libs.stately.common)
+                implementation(libs.koin.core)
+                implementation(libs.voyager.core)
+                implementation(libs.voyager.koin)
+                implementation(libs.voyager.androidx)
+                implementation(libs.voyager.bottomSheetNavigator)
+                implementation(libs.voyager.navigator)
+                implementation(libs.voyager.transitions)
                 implementation(libs.hyperdrive.multiplatformx.api)
 
                 implementation(libs.ktor.client.serialization)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.ktor.client.logging)
+                implementation("com.squareup.sqldelight:runtime:1.5.5")
+
+                // load image
+                api("io.github.qdsfdhvh:image-loader:1.2.8")
+
+
             }
         }
 
@@ -106,6 +107,8 @@ kotlin {
                 api(libs.appcompat)
                 api(libs.androidx.core.ktx)
                 implementation(libs.androidx.core.ktx)
+                implementation("com.squareup.sqldelight:android-driver:1.5.5")
+
             }
         }
 
@@ -118,25 +121,19 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                implementation(libs.ktor.client.ios)
+//                implementation(libs.ktor.client.ios)
+                implementation("com.squareup.sqldelight:native-driver:1.5.5")
+
             }
         }
-
-//        val desktopMain by getting {
-//            kotlin.srcDirs("src/jvmMain/kotlin")
-//            dependsOn(commonMain)
-//            dependencies {
-//                implementation(compose.desktop.common)
-//            }
-//        }
     }
 }
 
 android {
     namespace = "com.aicontent.comicbook.common"
     compileSdk = 33
-    sourceSets["main"].manifest.srcFile("src/main/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/main/res", "src/commonMain/resources")
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
     defaultConfig {
         minSdk = 26
         targetSdk = 33

@@ -1,0 +1,96 @@
+CREATE TABLE ComicDatabase (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    author TEXT,
+    cover_image TEXT,
+    description TEXT,
+    release_date TEXT
+);
+
+insertComic:
+INSERT INTO ComicDatabase(id, title, author, cover_image, description, release_date)
+VALUES(?,?,?,?,?,?);
+
+removeAllComic:
+DELETE FROM  ComicDatabase;
+
+selectAllComicInfor:
+SELECT ComicDatabase.*
+FROM ComicDatabase;
+
+-- comics.sq
+-- This SQLDelight file contains the schema for the Comics database
+
+
+CREATE TABLE tags (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE categories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
+);
+
+-- Table for storing comics
+CREATE TABLE comics (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    categoryId  TEXT NOT NULL,
+    author TEXT NOT NULL ,
+    pageCount INTEGER NOT NULL,
+    favorites INTEGER NOT NULL,
+    created INTEGER NOT NULL,
+    image TEXT NOT NULL
+);
+
+getAllComics:
+SELECT comics.*
+FROM comics;
+
+getComicById:
+SELECT comics.*
+FROM comics
+WHERE id = ?;
+
+-- Update a comic by its ID
+updateComicById:
+UPDATE comics
+SET title = ?,
+    description = ?,
+    categoryId = ?,
+    author = ?,
+    pageCount = ?,
+    favorites = ?,
+    created = ?,
+    image = ?
+WHERE id = ?;
+
+insertNew:
+INSERT INTO comics(
+     id,
+     title,
+     description,
+     categoryId,
+     author,
+     pageCount,
+     favorites,
+     created,
+     image
+) VALUES(?, ?,?,?, ?, ?, ?, ?, ?);
+
+deleteComicById:
+DELETE FROM comics
+WHERE id = ?;
+
+deleteComics:
+DELETE FROM comics;
+
+CREATE TABLE comic_tags (
+  note_id INTEGER NOT NULL,
+  tag_id INTEGER NOT NULL,
+  FOREIGN KEY (note_id) REFERENCES comics(id),
+  FOREIGN KEY (tag_id) REFERENCES tags(id),
+  PRIMARY KEY (note_id, tag_id)
+);

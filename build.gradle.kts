@@ -8,6 +8,10 @@ plugins {
     id("com.android.library") apply false
     id("org.jetbrains.compose") apply false
     id("com.google.relay") version ("0.3.05")
+//    id("com.google.dagger.hilt.android") version ("2.44") apply false
+//    id("org.jetbrains.kotlin.android") version ("1.6.10") apply false
+
+
 }
 
 buildscript {
@@ -20,9 +24,10 @@ buildscript {
     val sqlDelightVersion = "1.5.5"
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.android.tools.build:gradle:7.4.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.8.0")
         classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
+        classpath("com.google.gms:google-services:4.3.15")
     }
 }
 

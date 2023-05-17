@@ -12,9 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.navigator.Navigator
 import com.aicontent.comic.ui.Notification.NotificationScreen
-import com.aicontent.comic.ui.homePage.HomePageScreen
-import com.aicontent.comic.ui.saved.SavedScreen
+//import com.aicontent.comic.ui.Notification.AddScreen
+//import com.aicontent.comic.ui.Notification.NotificationScreen
+//import com.aicontent.comic.ui.saved.ComicsScreen
+import com.aicontent.comic.ui.homePage.homePage.HomePageScreen
+import com.aicontent.comic.ui.saved.SavedScreens
 import com.aicontent.comic.ui.topics.TopicsScreen
 import com.aicontent.comicbook.viewmodel.ApplicationViewModel
 import org.jetbrains.codeviewer.ui.util.observeAsState
@@ -39,7 +43,7 @@ internal fun BottomNavigationScreen(
                     }
                     BottomNavigationItem(
                         icon = { Icon(imageVector = icon, contentDescription = null) },
-                        label = { Text(text = title)},
+                        label = { Text(text = title) },
                         selected = selectedTabs == tab,
                         onClick = {
                             viewModel.selectedTab = tab
@@ -48,12 +52,12 @@ internal fun BottomNavigationScreen(
                 }
             }
         }
-    ) {innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)){
-            when (selectedTabs){
-                ApplicationViewModel.Tab.HomePage -> HomePageScreen()
-                ApplicationViewModel.Tab.Topics -> TopicsScreen()
-                ApplicationViewModel.Tab.Saved -> SavedScreen()
+    ) { innerPadding ->
+        Box(modifier = Modifier.padding(innerPadding)) {
+            when (selectedTabs) {
+                ApplicationViewModel.Tab.HomePage -> Navigator(HomePageScreen())
+                ApplicationViewModel.Tab.Topics -> Navigator(TopicsScreen())
+                ApplicationViewModel.Tab.Saved -> SavedScreens()
                 ApplicationViewModel.Tab.Notification -> NotificationScreen()
             }
         }

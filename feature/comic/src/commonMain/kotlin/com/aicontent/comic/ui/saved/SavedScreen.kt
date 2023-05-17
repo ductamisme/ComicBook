@@ -1,20 +1,11 @@
 package com.aicontent.comic.ui.saved
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import com.aicontent.comic.ui.homePage.homePage.SearchScreen
+
 
 @Composable
-fun SavedScreen(){
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text("Saved Screen")
-    }
+ fun SavedScreens() {
+    SearchScreen()
 }
+

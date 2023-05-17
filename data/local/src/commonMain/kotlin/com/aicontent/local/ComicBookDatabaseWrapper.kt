@@ -1,4 +1,6 @@
 package com.aicontent.local
 
-class ComicBookDatabaseWrapper {
-}
+import com.aicontent.database.ComicBookDatabase
+
+
+class ComicBookDatabaseWrapper(val instance: ComicBookDatabase)

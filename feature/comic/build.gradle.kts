@@ -3,7 +3,9 @@ plugins {
     id("com.android.library")
     id("kotlinx-serialization")
     id("org.jetbrains.compose")
+//    id("com.google.gms.google-services")
     id("com.google.relay") version ("0.3.05")
+
 }
 
 kotlin {
@@ -28,23 +30,40 @@ kotlin {
     sourceSets {
         val commonMain by getting{
             dependencies {
+//                implementation(project(":shared"))
                 implementation(project(":domain"))
                 implementation(project(":data:model"))
+                implementation(project(":data:local"))
+                implementation(project(":extension"))
+                implementation(project(":image-loader"))
 
-                //                implementation(libs.bundles.ktor.common)
-//                implementation(libs.bundles.sqldelight.common)
-//                api(libs.kermit)
-//                api(libs.kermit.crashlytics)
-
-                // this enforces new version of atomicfu, the older version from other libraries crashes iOS build
-//                api(libs.atomicfu)
                 api(libs.uuid)
-                api(libs.kotlinx.coroutines.core)
+//                api(libs.kotlinx.coroutines.core)
                 api(libs.kotlinx.datetime)
                 api(libs.multiplatformSettings.core)
+//                api(projects.imageLoader)
+//                api(projects.extension.blur)
 
                 implementation(libs.stately.common)
+
+//                implementation(libs.koin.androidx.compose)
+//                implementation("io.insert-koin:koin-android:3.4.0")
+
+                implementation(libs.voyager.core)
+                implementation(libs.voyager.koin)
+                implementation(libs.voyager.androidx)
+                implementation(libs.voyager.bottomSheetNavigator)
+                implementation(libs.voyager.navigator)
+                implementation(libs.voyager.transitions)
+                implementation(libs.voyager.hilt)
+                implementation(libs.voyager.livedata)
+                implementation(libs.voyager.androidx)
+                implementation(libs.voyager.tabNavigator)
+                implementation(libs.voyager.kodein)
+
                 implementation(libs.koin.core)
+
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 
                 implementation(compose.ui)
                 implementation(compose.foundation)
@@ -52,6 +71,10 @@ kotlin {
                 implementation(compose.runtime)
 
                 implementation(libs.hyperdrive.multiplatformx.api)
+
+                // load image
+                api("io.github.qdsfdhvh:image-loader:1.2.8")
+
             }
         }
         val commonTest by getting {
@@ -59,7 +82,12 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting{
+            kotlin.srcDirs("src/jvmMain/kotlin")
+            dependencies {
+                implementation(libs.koin.android)
+            }
+        }
         val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
