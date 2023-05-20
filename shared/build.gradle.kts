@@ -8,6 +8,8 @@ plugins {
     id("kotlinx-serialization")
 //    id("com.google.gms.google-services")
     id("com.squareup.sqldelight")
+//    kotlin("native.cocoapods") version "1.8.21"
+
 
 }
 
@@ -46,7 +48,8 @@ kotlin {
             baseName = "shared"
             isStatic = true
         }
-        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+        extraSpecAttributes["resources"] =
+            "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
 
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
@@ -55,7 +58,20 @@ kotlin {
         }
     }
 
+//    val abcNotifications = "com.linecorp.abc:kmm-notifications:0.4.1"
+//    val kotlinxSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
+
     sourceSets {
+//        ios {
+//            binaries
+//                .filterIsInstance<Framework>()
+//                .forEach {
+//                    it.transitiveExport = true
+//                    it.export(abcNotifications)
+//                }
+//        }
+//        android()
+
         val commonMain by getting {
             dependencies {
                 implementation(project(":data:local"))
@@ -69,6 +85,7 @@ kotlin {
                 implementation(compose.material)
                 implementation(compose.materialIconsExtended)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
 
                 api(libs.kotlinx.coroutines.core)
                 api(libs.kotlinx.datetime)
@@ -77,8 +94,6 @@ kotlin {
                 implementation(libs.stately.common)
                 implementation(libs.koin.core)
 
-                implementation(libs.stately.common)
-                implementation(libs.koin.core)
                 implementation(libs.voyager.core)
                 implementation(libs.voyager.koin)
                 implementation(libs.voyager.androidx)
@@ -96,7 +111,8 @@ kotlin {
                 // load image
                 api("io.github.qdsfdhvh:image-loader:1.2.8")
 
-
+//                implementation("com.linecorp.abc:kmm-notifications:0.4.1")
+//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
             }
         }
 
@@ -109,6 +125,8 @@ kotlin {
                 implementation(libs.androidx.core.ktx)
                 implementation("com.squareup.sqldelight:android-driver:1.5.5")
 
+//                implementation("com.linecorp.abc:kmm-notifications:0.4.1")
+//                api("com.linecorp.abc:kmm-notifications:0.4.1")
             }
         }
 
@@ -124,6 +142,8 @@ kotlin {
 //                implementation(libs.ktor.client.ios)
                 implementation("com.squareup.sqldelight:native-driver:1.5.5")
 
+//                implementation("com.linecorp.abc:kmm-notifications:0.4.1")
+//                api("com.linecorp.abc:kmm-notifications:0.4.1")
             }
         }
     }

@@ -23,6 +23,11 @@ buildscript {
     }
     val sqlDelightVersion = "1.5.5"
     dependencies {
+//        classpath("com.android.tools.build:gradle:7.0.1")
+//        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
+//        classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.21")
+//        classpath("com.google.gms:google-services:4.3.5")
+
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
         classpath("com.android.tools.build:gradle:7.4.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.8.0")

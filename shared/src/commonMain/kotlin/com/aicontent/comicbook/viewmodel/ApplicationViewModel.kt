@@ -5,10 +5,10 @@ import com.aicontent.comic.viewModel.settings.SettingsViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.brightify.hyperdrive.multiplatformx.BaseViewModel
 
-class ApplicationViewModel(settingsFactory: SettingsViewModel.Factory, comicsViewModel: HomePageViewModel.Factory):BaseViewModel() {
+class ApplicationViewModel(settingsFactory: SettingsViewModel.Factory):BaseViewModel() {
     val settings by managed(settingsFactory.create())
 
-    val comicViewModel by managed(comicsViewModel.create())
+//    val comicViewModel by managed(comicsViewModel.create())
 
     val tabs = listOf(Tab.HomePage, Tab.Topics, Tab.Saved, Tab.Notification)
 

@@ -19,6 +19,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.aicontent.comic.ui.navigation.SharedScreen
+import com.aicontent.local.di.databaseModule
 import com.aicontent.model.comic.local.ComicsEntity
 
 
@@ -53,7 +54,6 @@ class HomePageScreen() : Screen {
                 FloatingActionButton(
                     onClick = {
                         navigator.push(addScreen)
-
                     },
                     backgroundColor = MaterialTheme.colors.primary
                 ) {
@@ -65,6 +65,7 @@ class HomePageScreen() : Screen {
 
             val onNoteClicked = { comic: ComicsEntity ->
                 viewModel.setSelectedNote(comic)
+                navigator.push(addScreen)
             }
 
 //            if (selectedNote != null) {

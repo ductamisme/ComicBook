@@ -34,7 +34,7 @@ val shareModule = module {
     single {
         ApplicationViewModel(
             settingsFactory = get(),
-            comicsViewModel = get()
+//            comicsViewModel = get()
         )
     }
     ScreenRegistry {
