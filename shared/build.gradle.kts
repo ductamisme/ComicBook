@@ -6,11 +6,6 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.compose")
     id("kotlinx-serialization")
-//    id("com.google.gms.google-services")
-    id("com.squareup.sqldelight")
-//    kotlin("native.cocoapods") version "1.8.21"
-
-
 }
 
 version = "1.0-SNAPSHOT"
@@ -48,30 +43,21 @@ kotlin {
             baseName = "shared"
             isStatic = true
         }
-        extraSpecAttributes["resources"] =
-            "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
 
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
             linkerOpts.add("-lsqlite3")
+//            export(libs.kermit)
+//            export(libs.hyperdrive.multiplatformx.api)
+//            export(project(":shared"))
+//            export(project(":shared-ui"))
         }
     }
-
-//    val abcNotifications = "com.linecorp.abc:kmm-notifications:0.4.1"
-//    val kotlinxSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
+//    val compose_version = '1.1.1'
 
     sourceSets {
-//        ios {
-//            binaries
-//                .filterIsInstance<Framework>()
-//                .forEach {
-//                    it.transitiveExport = true
-//                    it.export(abcNotifications)
-//                }
-//        }
-//        android()
-
         val commonMain by getting {
             dependencies {
                 implementation(project(":data:local"))
@@ -79,13 +65,23 @@ kotlin {
                 implementation(project(":domain"))
                 implementation(project(":feature:comic"))
 
-                implementation(compose.ui)
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
                 implementation(compose.materialIconsExtended)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+
+//                implementation("androidx.compose.runtime:runtime:1.4.1")
+//                implementation("androidx.compose.foundation:foundation:1.4.1")
+//                implementation("androidx.compose.material:material:1.4.1")
+//                implementation("androidx.compose.material:material-icons-extended:1.4.1")
+//                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+//                implementation(compose.components.resources)
+//                implementation("androidx.compose.components:components-resources:1.4.1")
+                implementation(libs.voyager.navigator)
+                implementation(libs.voyager.core)
+                implementation(libs.voyager.transitions)
 
                 api(libs.kotlinx.coroutines.core)
                 api(libs.kotlinx.datetime)
@@ -94,28 +90,15 @@ kotlin {
                 implementation(libs.stately.common)
                 implementation(libs.koin.core)
 
-                implementation(libs.voyager.core)
-                implementation(libs.voyager.koin)
-                implementation(libs.voyager.androidx)
-                implementation(libs.voyager.bottomSheetNavigator)
-                implementation(libs.voyager.navigator)
-                implementation(libs.voyager.transitions)
+                implementation(compose.ui)
+                implementation(compose.runtime)
+//                implementation ("androidx.compose.ui:ui:1.4.1")
+//                implementation("androidx.compose.ui:ui")
+//                implementation("androidx.compose.runtime:runtime:1.4.1")
+
                 implementation(libs.hyperdrive.multiplatformx.api)
-
-                implementation(libs.ktor.client.serialization)
-                implementation(libs.ktor.client.content.negotiation)
-                implementation(libs.ktor.serialization.kotlinx.json)
-                implementation(libs.ktor.client.logging)
-                implementation("com.squareup.sqldelight:runtime:1.5.5")
-
-                // load image
-                api("io.github.qdsfdhvh:image-loader:1.2.8")
-
-//                implementation("com.linecorp.abc:kmm-notifications:0.4.1")
-//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
             }
         }
-
         val androidMain by getting {
             kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
@@ -123,13 +106,8 @@ kotlin {
                 api(libs.appcompat)
                 api(libs.androidx.core.ktx)
                 implementation(libs.androidx.core.ktx)
-                implementation("com.squareup.sqldelight:android-driver:1.5.5")
-
-//                implementation("com.linecorp.abc:kmm-notifications:0.4.1")
-//                api("com.linecorp.abc:kmm-notifications:0.4.1")
             }
         }
-
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -139,23 +117,26 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-//                implementation(libs.ktor.client.ios)
-                implementation("com.squareup.sqldelight:native-driver:1.5.5")
-
-//                implementation("com.linecorp.abc:kmm-notifications:0.4.1")
-//                api("com.linecorp.abc:kmm-notifications:0.4.1")
             }
         }
+
+//        val desktopMain by getting {
+//            kotlin.srcDirs("src/jvmMain/kotlin")
+//            dependsOn(commonMain)
+//            dependencies {
+//                implementation(compose.desktop.common)
+//            }
+//        }
     }
 }
 
 android {
-    namespace = "com.aicontent.comicbook.common"
+    namespace = "com.aicontent.comicbook"
     compileSdk = 33
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
     defaultConfig {
-        minSdk = 26
+        minSdk = 24
         targetSdk = 33
     }
     compileOptions {
