@@ -29,22 +29,22 @@ kotlin {
         }
     }
 
-    jvm("desktop")
+//    jvm("desktop")
 
     ios()
     iosSimulatorArm64()
 
-//    cocoapods {
-//        summary = "Shared code for the sample"
-//        homepage = "https://github.com/JetBrains/compose-jb"
-//        ios.deploymentTarget = "14.1"
-//        podfile = project.file("../iosApp/Podfile")
-//        framework {
-//            baseName = "shared"
-//            isStatic = true
-//        }
-//        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
-//    }
+    cocoapods {
+        summary = "Shared code for the sample"
+        homepage = "https://github.com/JetBrains/compose-jb"
+        ios.deploymentTarget = "14.1"
+        podfile = project.file("../iosApp/Podfile")
+        framework {
+            baseName = "shared"
+            isStatic = true
+        }
+        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+    }
 
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
@@ -69,13 +69,16 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material)
                 implementation(compose.materialIconsExtended)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
+
 //                implementation("androidx.compose.runtime:runtime:1.4.1")
 //                implementation("androidx.compose.foundation:foundation:1.4.1")
 //                implementation("androidx.compose.material:material:1.4.1")
 //                implementation("androidx.compose.material:material-icons-extended:1.4.1")
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+//                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 //                implementation(compose.components.resources)
-                implementation("androidx.compose.components:components-resources:1.4.1")
+//                implementation("androidx.compose.components:components-resources:1.4.1")
 
                 api(libs.kotlinx.coroutines.core)
                 api(libs.kotlinx.datetime)

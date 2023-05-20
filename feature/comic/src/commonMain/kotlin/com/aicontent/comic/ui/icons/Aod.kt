@@ -1,4 +1,4 @@
-package com.mangala.wallet.features.people.ui.icons
+package com.aicontent.comic.ui.icons
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.materialIcon
