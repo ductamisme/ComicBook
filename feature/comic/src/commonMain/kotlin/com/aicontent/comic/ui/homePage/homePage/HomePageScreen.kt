@@ -1,15 +1,18 @@
 package com.aicontent.comic.ui.homePage.homePage
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-//import androidx.compose.foundation.layout.ColumnScopeInstance.weight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -18,9 +21,11 @@ import cafe.adriel.voyager.core.registry.rememberScreen
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import com.aicontent.comic.ui.ImageItem
 import com.aicontent.comic.ui.navigation.SharedScreen
-import com.aicontent.local.di.databaseModule
+import com.aicontent.local.time.DateTimeUtil
 import com.aicontent.model.comic.local.ComicsEntity
+import org.koin.core.KoinApplication.Companion.init
 
 
 sealed class IconType {
@@ -34,21 +39,28 @@ sealed class IconType {
     object Delete : IconType()
 }
 
-class HomePageScreen() : Screen {
-    @OptIn(ExperimentalAnimationApi::class)
+class HomePageScreen : Screen {
     @Composable
     override fun Content() {
-
         val viewModel = rememberScreenModel { HomePageViewModel() }
         val navigator = LocalNavigator.currentOrThrow
         val searchScreen = rememberScreen(SharedScreen.SearchScreen)
-        val addScreen = rememberScreen(SharedScreen.AddScreen)
         val comics by viewModel.comics.collectAsState(emptyList())
+        val selectedComic by viewModel.selectedComic.collectAsState(null)
+        val addScreen = rememberScreen(SharedScreen.AddScreen)
+        val avatarScreen = rememberScreen(SharedScreen.AvatarScreen)
 
-        val selectedNote by viewModel.selectedNote.collectAsState(null)
+        // Reload items when navigation occurs
+        LaunchedEffect(navigator) {
+            viewModel.loadComics() // Load comics when navigating to this screen
+        }
 
         Scaffold(
-            topBar = { TopBarHomePage { navigator.push(searchScreen) } },
+            topBar = {
+                TopBarHomePage(
+                    { navigator.push(searchScreen) },
+                    { navigator.push(avatarScreen) })
+            },
             backgroundColor = Color.White,
             floatingActionButton = {
                 FloatingActionButton(
@@ -62,20 +74,6 @@ class HomePageScreen() : Screen {
             },
             floatingActionButtonPosition = FabPosition.End
         ) {
-
-            val onNoteClicked = { comic: ComicsEntity ->
-                viewModel.setSelectedNote(comic)
-                navigator.push(addScreen)
-            }
-
-//            if (selectedNote != null) {
-//                val editScreen = rememberScreen(SharedScreen.EditScreen)
-//                EditNoteScreen(
-//                    noteId = selectedNote!!.id,
-//                    viewModel = viewModel,
-//                    navigator = navigator
-//                )
-//            } else {
             Column {
                 LazyColumn(
                     modifier = Modifier.padding(16.dp),
@@ -94,9 +92,24 @@ class HomePageScreen() : Screen {
                         }
                     }
                     items(comics) { comic ->
+                        val editScreen = rememberScreen(
+                            SharedScreen.EditScreen(
+                                selectedComic ?: ComicsEntity(
+                                    comic.id,
+                                    comic.title,
+                                    comic.description,
+                                    comic.category,
+                                    comic.author,
+                                    comic.pageCount,
+                                    comic.favorites,
+                                    DateTimeUtil.now(),
+                                    comic.image
+                                )
+                            )
+                        )
                         ItemComics(
                             comic,
-                            { onNoteClicked(comic) },
+                            { navigator.push(editScreen) },
                             { viewModel.deleteComicById(comic.id!!) }
                         )
                     }
@@ -107,19 +120,56 @@ class HomePageScreen() : Screen {
 }
 
 @Composable
-fun TopBarHomePage(onSearchClicked: () -> Unit) {
+fun TopBarHomePage(onSearchClicked: () -> Unit, onAvatarClick: () -> Unit) {
     TopAppBar(
         title = { Text(text = "ComicBooks") },
         actions = {
             IconButton(onClick = onSearchClicked) {
                 Icon(Icons.Filled.Search, contentDescription = "Search")
             }
-            IconButton(onClick = { /* Handle avatar click */ }) {
-                Icon(Icons.Filled.Person, contentDescription = "Avatar")
+            IconButton(onClick = onAvatarClick) {
+                ImageItem(
+                    "https://ecdn.game4v.com/g4v-content/uploads/2022/09/25083529/Gojo-2-game4v-1664069728-55.jpg",
+                    modifier = Modifier.size(36.dp)
+                        .clip(CircleShape)
+                )
+//                Icon(Icons.Filled.Person, contentDescription = "Avatar")
             }
         }
     )
 }
 
+
+//@Composable
+//fun DropdownDemo() {
+//    var expanded by remember { mutableStateOf(false) }
+//    val items = listOf("A", "B", "C", "D", "E", "F")
+//    val disabledValue = "B"
+//    var selectedIndex by remember { mutableStateOf(0) }
+//    Box(modifier = Modifier.fillMaxSize().wrapContentSize(Alignment.TopStart)) {
+//        Text(items[selectedIndex],modifier = Modifier.fillMaxWidth().clickable(onClick = { expanded = true }).background(
+//            Color.Gray))
+//        DropdownMenu(
+//            expanded = expanded,
+//            onDismissRequest = { expanded = false },
+//            modifier = Modifier.fillMaxWidth().background(
+//                Color.Red)
+//        ) {
+//            items.forEachIndexed { index, s ->
+//                DropdownMenuItem(onClick = {
+//                    selectedIndex = index
+//                    expanded = false
+//                }) {
+//                    val disabledText = if (s == disabledValue) {
+//                        " (Disabled)"
+//                    } else {
+//                        ""
+//                    }
+//                    Text(text = s + disabledText)
+//                }
+//            }
+//        }
+//    }
+//}
 
 

@@ -6,6 +6,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.compose")
     id("kotlinx-serialization")
+//    apply plugin: "dev.icerock.mobile.multiplatform-resources"
 }
 
 version = "1.0-SNAPSHOT"
@@ -38,7 +39,7 @@ kotlin {
         summary = "Shared code for the sample"
         homepage = "https://github.com/JetBrains/compose-jb"
         ios.deploymentTarget = "14.1"
-        podfile = project.file("../iosApp/Podfile")
+//        podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
             isStatic = true
@@ -79,6 +80,7 @@ kotlin {
 //                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 //                implementation(compose.components.resources)
 //                implementation("androidx.compose.components:components-resources:1.4.1")
+
                 implementation(libs.voyager.navigator)
                 implementation(libs.voyager.core)
                 implementation(libs.voyager.transitions)

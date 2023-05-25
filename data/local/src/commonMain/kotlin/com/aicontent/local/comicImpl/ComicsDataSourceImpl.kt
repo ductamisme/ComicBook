@@ -30,7 +30,7 @@ class ComicsDataSourceImpl(
             author = comic.author,
             pageCount = comic.pageCount,
             favorites = comic.favorites,
-            created =DateTimeUtil.toEpochMillis(comic.created),
+            created = DateTimeUtil.toEpochMillis(comic.created),
             image = comic.image
         )
     }
@@ -69,19 +69,47 @@ class ComicsDataSourceImpl(
     }
 
     override suspend fun updateComicById(comic: ComicsEntity) {
-        TODO("Not yet implemented")
+        dbQuery.transaction {
+            comic.id?.let {
+                dbQuery.updateComicById(
+        //                id = comic.id,
+                    title = comic.title,
+                    description = comic.description,
+                    categoryId = comic.category,
+                    author = comic.author,
+                    pageCount = comic.pageCount,
+                    favorites = comic.favorites,
+                    created = DateTimeUtil.toEpochMillis(comic.created),
+                    image = comic.image,
+                    id = it
+                )
+            }
+        }
     }
+
+//    override suspend fun searchNotes(query: String): List<ComicsEntity> {
+//        dbQuery.transaction {
+//            dbQuery.searchComic()
+//        }
+////        val searchQuery = "%$query%"
+////        return notesQueries.searchNotes(searchQuery, searchQuery).executeAsList()
+////        TODO("Not yet implemented")
+//    }
+//
+//    override suspend fun filterNotesByCategory(categoryId: Long): List<ComicsEntity> {
+//        TODO("Not yet implemented")
+//    }
 
     private fun mapComicSelecting(
         id: Long,
-        title : String,
+        title: String,
         description: String,
         category: String,
         author: String,
         pageCount: Long,
         favourites: Long,
-        created : LocalDateTime,
-        image : String
+        created: LocalDateTime,
+        image: String
     ): ComicsEntity {
         return ComicsEntity(
             id,

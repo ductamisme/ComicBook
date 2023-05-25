@@ -63,17 +63,22 @@ kotlin {
 
                 implementation(libs.koin.core)
 
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0")
 
                 implementation(compose.ui)
                 implementation(compose.foundation)
                 implementation(compose.material)
                 implementation(compose.runtime)
+                implementation(compose.animationGraphics)
+//                implementation(compose.)
+//                implementation(compose.components)
+//                implementation(compose.uiTooling)
+//                implementation(compose.)
 
                 implementation(libs.hyperdrive.multiplatformx.api)
 
                 // load image
-                api("io.github.qdsfdhvh:image-loader:1.2.8")
+                api("io.github.qdsfdhvh:image-loader:1.4.0")
 
             }
         }

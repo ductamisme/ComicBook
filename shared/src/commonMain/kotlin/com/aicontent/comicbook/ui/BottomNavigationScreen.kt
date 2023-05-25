@@ -57,7 +57,7 @@ internal fun BottomNavigationScreen(
             when (selectedTabs) {
                 ApplicationViewModel.Tab.HomePage -> Navigator(HomePageScreen())
                 ApplicationViewModel.Tab.Topics -> Navigator(TopicsScreen())
-                ApplicationViewModel.Tab.Saved -> SavedScreens()
+                ApplicationViewModel.Tab.Saved -> Navigator(SavedScreens())
                 ApplicationViewModel.Tab.Notification -> NotificationScreen()
             }
         }

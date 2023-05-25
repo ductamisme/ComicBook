@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 <<<<<<< HEAD
+<<<<<<< HEAD
 		04456D4029E51789001BC15C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04456D3F29E51789001BC15C /* libsqlite3.tbd */; };
 		04456D4229E5181E001BC15C /* KoinApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04456D4129E5181E001BC15C /* KoinApplication.swift */; };
 		04456D4429E51A59001BC15C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04456D4329E51A59001BC15C /* AppDelegate.swift */; };
@@ -22,11 +23,16 @@
 		2A70E014D8FBB412ADF2BF37 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91876901CEF9D04E615868AF /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 =======
+=======
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		CEE0BC068887405FED25D645 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9D2D7B0EA2C373E5A391CA /* Pods_iosApp.framework */; };
+<<<<<<< HEAD
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
+=======
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 /* End PBXBuildFile section */
 
@@ -44,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 <<<<<<< HEAD
 		04456D3F29E51789001BC15C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		04456D4129E5181E001BC15C /* KoinApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinApplication.swift; sourceTree = "<group>"; };
@@ -63,6 +70,8 @@
 		91876901CEF9D04E615868AF /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41C14A5851A8F1FC3D4F059 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 =======
+=======
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 		00364EB94542BD00B4832250 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -72,6 +81,9 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
+=======
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 /* End PBXFileReference section */
 
@@ -81,8 +93,12 @@
 			buildActionMask = 2147483647;
 			files = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				04456D4029E51789001BC15C /* libsqlite3.tbd in Frameworks */,
 				2A70E014D8FBB412ADF2BF37 /* Pods_iosApp.framework in Frameworks */,
+=======
+				CEE0BC068887405FED25D645 /* Pods_iosApp.framework in Frameworks */,
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 				CEE0BC068887405FED25D645 /* Pods_iosApp.framework in Frameworks */,
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
@@ -92,6 +108,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 <<<<<<< HEAD
 		03E4D12C0017C9BE46D1CAAD /* Pods */ = {
 			isa = PBXGroup;
@@ -112,6 +129,8 @@
 		};
 =======
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
+=======
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 		058557D7273AAEEB004C7B11 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +146,11 @@
 				7555FF7C242A565900829871 /* Products */,
 				7555FFB0242A642200829871 /* Frameworks */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				03E4D12C0017C9BE46D1CAAD /* Pods */,
+=======
+				87AB1E07C2DB943D0AB93BF1 /* Pods */,
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 				87AB1E07C2DB943D0AB93BF1 /* Pods */,
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
@@ -146,7 +169,10 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				04456D4D29E520F4001BC15C /* Utils */,
+=======
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
@@ -155,12 +181,15 @@
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				04456D4129E5181E001BC15C /* KoinApplication.swift */,
 				04456D4329E51A59001BC15C /* AppDelegate.swift */,
 				04456D4529E51C17001BC15C /* SwitchingRootView.swift */,
 				04456D4729E51C88001BC15C /* SettingsBundleHelper.swift */,
 				04456D4929E51F26001BC15C /* ComposeController.swift */,
 				04456D4B29E51F67001BC15C /* BackgroundCrashWorkaroundController.swift */,
+=======
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 			);
@@ -171,8 +200,12 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				04456D3F29E51789001BC15C /* libsqlite3.tbd */,
 				91876901CEF9D04E615868AF /* Pods_iosApp.framework */,
+=======
+				6E9D2D7B0EA2C373E5A391CA /* Pods_iosApp.framework */,
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 				6E9D2D7B0EA2C373E5A391CA /* Pods_iosApp.framework */,
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
@@ -181,7 +214,10 @@
 			sourceTree = "<group>";
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 		87AB1E07C2DB943D0AB93BF1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +228,9 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
+=======
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 /* End PBXGroup section */
 
@@ -201,7 +240,11 @@
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				3D0C24F12BD79A56C00763ED /* [CP] Check Pods Manifest.lock */,
+=======
+				EAE29008EBB1863F0ED030AF /* [CP] Check Pods Manifest.lock */,
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 				EAE29008EBB1863F0ED030AF /* [CP] Check Pods Manifest.lock */,
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
@@ -267,7 +310,11 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 <<<<<<< HEAD
+<<<<<<< HEAD
 		3D0C24F12BD79A56C00763ED /* [CP] Check Pods Manifest.lock */ = {
+=======
+		7555FFB5242A651A00829871 /* ShellScript */ = {
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 		7555FFB5242A651A00829871 /* ShellScript */ = {
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
@@ -278,6 +325,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+<<<<<<< HEAD
 <<<<<<< HEAD
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
@@ -295,6 +343,8 @@
 		};
 		7555FFB5242A651A00829871 /* ShellScript */ = {
 =======
+=======
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 			);
 			outputFileListPaths = (
 			);
@@ -305,6 +355,9 @@
 			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
 		};
 		EAE29008EBB1863F0ED030AF /* [CP] Check Pods Manifest.lock */ = {
+<<<<<<< HEAD
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
+=======
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -313,6 +366,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+<<<<<<< HEAD
 <<<<<<< HEAD
 			);
 			outputFileListPaths = (
@@ -323,6 +377,8 @@
 			shellPath = /bin/sh;
 			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
 =======
+=======
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
@@ -336,6 +392,9 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+<<<<<<< HEAD
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
+=======
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -346,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				04456D4429E51A59001BC15C /* AppDelegate.swift in Sources */,
 				04456D4229E5181E001BC15C /* KoinApplication.swift in Sources */,
 				04456D4A29E51F26001BC15C /* ComposeController.swift in Sources */,
@@ -355,6 +415,10 @@
 				04456D4F29E52101001BC15C /* LifecycleManager.swift in Sources */,
 				04456D4829E51C88001BC15C /* SettingsBundleHelper.swift in Sources */,
 				04456D4629E51C17001BC15C /* SwitchingRootView.swift in Sources */,
+=======
+				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
@@ -484,7 +548,11 @@
 		7555FFA6242A565B00829871 /* Debug */ = {
 			isa = XCBuildConfiguration;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			baseConfigurationReference = A41C14A5851A8F1FC3D4F059 /* Pods-iosApp.debug.xcconfig */;
+=======
+			baseConfigurationReference = 00364EB94542BD00B4832250 /* Pods-iosApp.debug.xcconfig */;
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 			baseConfigurationReference = 00364EB94542BD00B4832250 /* Pods-iosApp.debug.xcconfig */;
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
@@ -517,7 +585,11 @@
 		7555FFA7242A565B00829871 /* Release */ = {
 			isa = XCBuildConfiguration;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			baseConfigurationReference = 53F9F4E644DD93DA2D0FF25D /* Pods-iosApp.release.xcconfig */;
+=======
+			baseConfigurationReference = 68A586E9149CB6AB46DF56A9 /* Pods-iosApp.release.xcconfig */;
+>>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b
 =======
 			baseConfigurationReference = 68A586E9149CB6AB46DF56A9 /* Pods-iosApp.release.xcconfig */;
 >>>>>>> 25b196f2606d4bef4c5c4c28670c0b679ef5137b

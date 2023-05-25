@@ -10,7 +10,7 @@
 //import com.aicontent.comic.ui.homePage.homePage.HomePageViewModel
 //import com.aicontent.model.comic.local.ComicsEntity
 //
-////class EditScreen : Screen {
+////class com.aicontent.comic.ui.homePage.add.EditScreen : Screen {
 ////    @Composable
 ////    override fun Content() {
 //
@@ -95,7 +95,7 @@
 //}
 //
 //
-//class EditUiState(
+//class com.aicontent.comic.ui.homePage.add.EditUiState(
 ////    id: Long = 0L,
 ////    title: String = "",
 ////    description: String = "",

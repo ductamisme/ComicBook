@@ -28,28 +28,21 @@ class HomePageViewModel : BaseViewModel(), ScreenModel, KoinComponent {
     private val _comics = useCaseGetAllComics.comicState
     val comics: StateFlow<List<ComicsEntity>> = _comics.asStateFlow()
 
-//    private val _comics = MutableStateFlow<List<ComicsEntity>>(emptyList())
-//    val comics: StateFlow<List<ComicsEntity>> = _comics.asStateFlow()
+//    private val _comicState: MutableStateFlow<ComicsEntity> = MutableStateFlow(listOf())
+//    val comicItem: StateFlow<ComicsEntity> =_comicState.asStateFlow()
+//    private _comicItem =
 
-    private val _selectedNote = MutableStateFlow<ComicsEntity?>(null)
-    val selectedNote: StateFlow<ComicsEntity?> = _selectedNote.asStateFlow()
+    private val _selectedComic = MutableStateFlow<ComicsEntity?>(null)
+    val selectedComic: StateFlow<ComicsEntity?> = _selectedComic.asStateFlow()
 
-    fun setSelectedNote(Comic: ComicsEntity) {
-        _selectedNote.value = Comic
+    fun setSelectedComic(comic: ComicsEntity) {
+        _selectedComic.value = comic
     }
 
-    fun resetSelectedNote() {
-        _selectedNote.value = null
+    fun resetSelectedComic() {
+        _selectedComic.value = null
     }
 
-//
-//    fun setSelectedNote(note: ComicsEntity) {
-//        _selectedNote = note
-//    }
-//
-//    fun resetSelectedNote() {
-//        _selectedNote = null
-//    }
 
     init {
         loadComics()
@@ -73,7 +66,7 @@ class HomePageViewModel : BaseViewModel(), ScreenModel, KoinComponent {
         return useCaseGetComicById.getComicById(id)
     }
 
-    private fun loadComics() {
+    fun loadComics() {
         useCaseGetAllComics.loadComics()
     }
 

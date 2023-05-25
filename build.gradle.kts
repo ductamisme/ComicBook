@@ -27,7 +27,7 @@ buildscript {
 //        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
 //        classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.21")
 //        classpath("com.google.gms:google-services:4.3.5")
-
+        classpath("dev.icerock.moko:resources-generator:0.22.3")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
         classpath("com.android.tools.build:gradle:7.4.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.8.0")

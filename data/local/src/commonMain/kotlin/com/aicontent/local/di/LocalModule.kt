@@ -8,6 +8,8 @@ import com.aicontent.local.useCase.UseCaseDeleteAllNote
 import com.aicontent.local.useCase.UseCaseDeleteById
 import com.aicontent.local.useCase.UseCaseInsertComics
 import com.aicontent.local.useCase.UseCaseGetAllComics
+import com.aicontent.local.useCase.UseCaseSearchComic
+import com.aicontent.local.useCase.UseCaseUpdateComicById
 import org.koin.dsl.module
 
 fun localModule() = module {
@@ -17,5 +19,6 @@ fun localModule() = module {
     single { UseCaseGetAllComics(get()) }
     single { UseCaseDeleteById(get()) }
     single { UseCaseDeleteAllNote(get()) }
-
+    single { UseCaseUpdateComicById(get()) }
+    single { UseCaseSearchComic(get())}
 }

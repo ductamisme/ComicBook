@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("com.squareup.sqldelight")
+    id("org.jetbrains.compose")
 }
 
 kotlin {
@@ -27,6 +28,9 @@ kotlin {
         val commonMain by getting{
             dependencies {
 //                implementation(project(":shared"))
+
+                implementation(compose.runtime)
+
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
 
                 implementation(project(":data:model"))

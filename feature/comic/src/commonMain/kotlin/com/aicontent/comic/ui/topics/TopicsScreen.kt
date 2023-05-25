@@ -42,8 +42,8 @@ class TopicsScreen : Screen {
 
         val viewModel = rememberScreenModel { HomePageViewModel() }
         val navigator = LocalNavigator.currentOrThrow
-        val savedScreen = rememberScreen(SharedScreen.AddScreen)
         val comics by viewModel.comics.collectAsState(emptyList())
+//        val savedScreen = rememberScreen(SharedScreen.AddScreen(comic = comics.component1()))
 
         Scaffold(
             topBar = { TopBarHomePage() }, backgroundColor = Color.White,

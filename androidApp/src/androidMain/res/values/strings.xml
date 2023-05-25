@@ -1,2 +1,5 @@
 <resources>
+    <string name="Forgot_password">Forgot password? </string>
+    <string name="change"> Change</string>
+
 </resources>
