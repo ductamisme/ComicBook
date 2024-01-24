@@ -16,7 +16,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
@@ -60,10 +60,10 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":data:local"))
-                implementation(project(":data:remote"))
-                implementation(project(":domain"))
-                implementation(project(":feature:comic"))
+//                implementation(project(":data:local"))
+//                implementation(project(":data:remote"))
+//                implementation(project(":domain"))
+//                implementation(project(":feature:comic"))
 
                 implementation(compose.runtime)
                 implementation(compose.foundation)
@@ -71,14 +71,6 @@ kotlin {
                 implementation(compose.materialIconsExtended)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-
-//                implementation("androidx.compose.runtime:runtime:1.4.1")
-//                implementation("androidx.compose.foundation:foundation:1.4.1")
-//                implementation("androidx.compose.material:material:1.4.1")
-//                implementation("androidx.compose.material:material-icons-extended:1.4.1")
-//                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-//                implementation(compose.components.resources)
-//                implementation("androidx.compose.components:components-resources:1.4.1")
 
                 api(libs.kotlinx.coroutines.core)
                 api(libs.kotlinx.datetime)
@@ -88,11 +80,6 @@ kotlin {
                 implementation(libs.koin.core)
 
                 implementation(compose.ui)
-                implementation(compose.runtime)
-//                implementation ("androidx.compose.ui:ui:1.4.1")
-//                implementation("androidx.compose.ui:ui")
-//                implementation("androidx.compose.runtime:runtime:1.4.1")
-
                 implementation(libs.hyperdrive.multiplatformx.api)
             }
         }
